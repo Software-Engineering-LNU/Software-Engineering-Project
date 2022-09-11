@@ -3,7 +3,7 @@ LC_ALL=C
 
 local_branch="$(git rev-parse --abbrev-ref HEAD)"
 
-valid_branch_regex="^((task|feature|fix|test|hotfix|user-story)\/[a-z0-9._-]+{5,50})|develop|main|release$"
+valid_branch_regex="^(task|feature|fix|test|hotfix|user-story)\/[a-z0-9._-]{5,50}|main|develop|release$"
 
 message="This branch violates the branch naming rules. Please rename your branch."
 
