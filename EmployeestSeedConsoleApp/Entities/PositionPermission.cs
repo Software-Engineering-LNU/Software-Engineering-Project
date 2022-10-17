@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EmployeestSeedConsoleApp.Entities
+﻿namespace EmployeestSeedConsoleApp.Entities
 {
-    internal class PositionPermission
+    public class PositionPermission
     {
+        public Position Position { get; set; }
+        public Permission Permission { get; set; }
     }
 }

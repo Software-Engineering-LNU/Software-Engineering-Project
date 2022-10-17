@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EmployeestSeedConsoleApp.Entities
+﻿namespace EmployeestSeedConsoleApp.Entities
 {
-    internal class ProjectMember
+    public class ProjectMember
     {
+        public Project Project { get; set; }
+        public User User { get; set; }
+        public Position Position { get; set; }
+        public double Salary { get; set; }
+
     }
 }
