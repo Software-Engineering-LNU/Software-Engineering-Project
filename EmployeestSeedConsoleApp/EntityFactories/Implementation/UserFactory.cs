@@ -7,6 +7,7 @@ namespace EmployeestSeedConsoleApp.EntityFactories
     {
 
         private static int EntitiesCounter = 0;
+        private static int PhoneNumberLength = 9;
 
         public User CreateEntity()
         {
@@ -47,7 +48,7 @@ namespace EmployeestSeedConsoleApp.EntityFactories
             string dictionaryString = "0123456789";
             StringBuilder stringBuilder = new StringBuilder();
             Random random = new Random();
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < PhoneNumberLength; i++)
             {
                 stringBuilder.Append(dictionaryString[random.Next(dictionaryString.Length)]);
             }
@@ -60,7 +61,7 @@ namespace EmployeestSeedConsoleApp.EntityFactories
             Random random = new Random();
             int randomNumber = random.Next(0, 5);
 
-            return randomNumber < 1 ? true : false;
+            return randomNumber < 1;
         }
     }
 }
