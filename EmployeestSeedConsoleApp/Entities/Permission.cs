@@ -1,4 +1,7 @@
-﻿namespace EmployeestSeedConsoleApp.Entities
+﻿using System;
+using System.Collections.Generic;
+
+namespace EmployeestSeedConsoleApp
 {
     public class Permission
     {

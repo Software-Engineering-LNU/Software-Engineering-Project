@@ -1,6 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using EmployeestSeedConsoleApp.Data;
+using Microsoft.Extensions.Configuration;
 
-namespace EmployeestSeedConsoleApp 
+namespace EmployeestSeedConsoleApp
 {
     public class Program
     {
@@ -9,18 +10,11 @@ namespace EmployeestSeedConsoleApp
         static void Main(string[] args)
         {
             var builder = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json");
+                                    .SetBasePath(Directory.GetCurrentDirectory())
+                                    .AddJsonFile("appsettings.json");
+            Configuration = builder.Build();
 
-            Configuration = builder.Build();  
-
-            //string connectionString = Configuration["ConnectionStrings:connectionString"];
-
-
-            //using (NpgsqlConnection sqlConnection = new NpgsqlConnection(connectionString))
-            //{
-            //    await sqlConnection.OpenAsync();
-            //}
+            EmployeestSeedData.SeedData(Configuration, 50);
         }
     }
 }

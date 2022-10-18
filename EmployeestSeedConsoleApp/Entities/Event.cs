@@ -1,5 +1,7 @@
-﻿
-namespace EmployeestSeedConsoleApp.Entities
+﻿using System;
+using System.Collections.Generic;
+
+namespace EmployeestSeedConsoleApp
 {
     public class Event
     {
@@ -8,6 +10,5 @@ namespace EmployeestSeedConsoleApp.Entities
         public DateOnly Date { get; set; }
         public TimeOnly StartTime { get; set; }
         public TimeOnly EndTime { get; set; }
-
     }
 }
