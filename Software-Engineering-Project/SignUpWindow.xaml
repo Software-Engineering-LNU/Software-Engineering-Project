@@ -17,23 +17,23 @@
             <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" FontSize="24" FontFamily="Roboto" Foreground="#FF5A5A5A" FontWeight="Medium"/>
             <Grid HorizontalAlignment="Center" Margin="0,85,0,304">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Full name" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
-                <TextBox x:Name="textBoxFullName" HorizontalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLines="1" MaxLength="254"/>
+                <TextBox x:Name="textBoxFullName" TextChanged="textBoxFullNameTextChanged" HorizontalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLines="1" MaxLength="254"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Margin="0,153,0,235">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Phone number" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
-                <TextBox x:Name="textBoxPhoneNumber" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
+                <TextBox x:Name="textBoxPhoneNumber" TextChanged="textBoxPhoneNumberTextChanged" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Margin="0,222,0,166">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
-                <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
+                <TextBox x:Name="textBoxEmail" TextChanged="textBoxEmailTextChanged" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Margin="0,291,0,95">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
-                <PasswordBox x:Name="passwordBoxPassword" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
+                <PasswordBox x:Name="passwordBoxPassword" PasswordChanged="passwordBoxPasswordTextChanged" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Margin="0,362,0,29">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Confirm password" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
-                <PasswordBox x:Name="passwordBoxConfirmPassword" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
+                <PasswordBox x:Name="passwordBoxConfirmPassword" PasswordChanged="passwordBoxConfirmPasswordTextChanged" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Margin="0,413,0,10" Width="356">
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Already have an account?" VerticalAlignment="Center" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
@@ -41,6 +41,6 @@
             </Grid>
             <Label x:Name="labelErrorMessage" Content="" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" IsEnabled="False" Foreground="Red" FontSize="14" FontFamily="Roboto" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="31"/>
         </Grid>
-        <Button x:Name="buttonSignUp" Content="Sign up" HorizontalAlignment="Center" Margin="0,583,0,50" VerticalAlignment="Bottom" Width="186" Background="#FF5A5A5A" Foreground="White" FontSize="14" FontFamily="Roboto" Height="40"/>
+        <Button x:Name="buttonSignUp" Content="Sign up" HorizontalAlignment="Center" Margin="0,583,0,50" VerticalAlignment="Bottom" Width="186" Background="#FF5A5A5A" Foreground="White" FontSize="14" FontFamily="Roboto" Height="40" Click="buttonSignUp_Clicked"/>
     </Grid>
 </Window>

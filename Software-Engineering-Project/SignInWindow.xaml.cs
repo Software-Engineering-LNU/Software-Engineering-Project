@@ -30,7 +30,7 @@ namespace Software_Engineering_Project
         {
             labelErrorMessage.Visibility = Visibility.Hidden;
         }
-        private void passwordBoxEmailTextChanged(object sender, RoutedEventArgs args)
+        private void passwordBoxPasswordTextChanged(object sender, RoutedEventArgs args)
         {
             labelErrorMessage.Visibility = Visibility.Hidden;
         }

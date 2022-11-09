@@ -21,7 +21,7 @@
             </Grid>
             <Grid HorizontalAlignment="Center" Margin="0,170,0,47">
                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
-                <PasswordBox x:Name="passwordBoxPassword" PasswordChanged="passwordBoxEmailTextChanged" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
+                <PasswordBox x:Name="passwordBoxPassword" PasswordChanged="passwordBoxPasswordTextChanged" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
             </Grid>
             <Grid HorizontalAlignment="Center" Margin="0,232,0,25" Width="356">
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Don't have an account?" VerticalAlignment="Center" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
