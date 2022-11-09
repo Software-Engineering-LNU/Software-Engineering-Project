@@ -52,12 +52,20 @@ namespace Software_Engineering_Project
         {
             if(isValidData())
             {
-                
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
             }
             else
             {
                 labelErrorMessage.Visibility = Visibility.Visible;
             }
+        }
+        private void buttonSignUp_Clicked(object sender, RoutedEventArgs e)
+        {
+            SignUpWindow signUpWindow = new SignUpWindow();
+            signUpWindow.Show();
+            this.Close();
         }
     }
 }
