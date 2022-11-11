@@ -1,16 +1,19 @@
 ﻿using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 namespace DAL.Data
 {
     public class EmployeestDbContext : DbContext
     {
         private readonly string connectionString;
+        private readonly IConfiguration configuration;
 
-        public EmployeestDbContext(IConfigurationRoot configuration)
+        public EmployeestDbContext()
         {
-            connectionString = configuration["ConnectionStrings:employeestConnectionString"];
+            //connectionString = configuration["ConnectionStrings:employeestConnectionString"];
+            connectionString = ConfigurationManager.ConnectionStrings["employeestConnectionString"].ConnectionString;
         }
         
         public DbSet<Event> Events { get; set; }

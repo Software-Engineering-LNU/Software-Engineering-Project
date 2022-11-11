@@ -17,7 +17,7 @@ namespace EmployeestSeed
             System.Diagnostics.Debug.WriteLine(Directory.GetCurrentDirectory());
             Console.WriteLine(Directory.GetCurrentDirectory());
 
-            EmployeestSeedData.SeedData(Configuration, 50);
+            EmployeestSeedData.SeedData(50);
         }
     }
 }

@@ -37,7 +37,7 @@ namespace EmployeestSeed.EntityFactories.Implementation
 
         private int GetRandomOwnerId()
         {
-            using (var db = new EmployeestDbContext(Program.Configuration))
+            using (var db = new EmployeestDbContext())
             {
                 List<User> users = db.Users.Where(user => user.IsBusinessOwner == true).ToList();
                 Random random = new Random();

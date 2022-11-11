@@ -8,9 +8,9 @@ namespace EmployeestSeed.Data
         private static readonly IUnitOfWork _unitOfWork = new UnitOfWork();
 
 
-        public static void SeedData(IConfigurationRoot configuration, int count)
+        public static void SeedData(int count)
         {
-            using (EmployeestDbContext db = new EmployeestDbContext(configuration))
+            using (EmployeestDbContext db = new EmployeestDbContext())
             {
                 for (int i = 0; i < count; i++)
                 {

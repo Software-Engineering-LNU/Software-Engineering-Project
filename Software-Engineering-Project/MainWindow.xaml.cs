@@ -1,5 +1,9 @@
-﻿using System.Windows;
-using EmployeestSeed;
+﻿using System.Threading.Tasks;
+using System.Windows;
+using BLL.Interfaces;
+using BLL.Services;
+using DAL.Interfaces;
+using DAL.Repositories;
 
 namespace Software_Engineering_Project
 {
@@ -11,7 +15,11 @@ namespace Software_Engineering_Project
         public MainWindow()
         {
             InitializeComponent();
-            EmployeestSeed.Program.Run(); // Runs seeder
+            //EmployeestSeed.Program.Run(); // Runs seeder
+
+            
         }
+
+       
     }
 }

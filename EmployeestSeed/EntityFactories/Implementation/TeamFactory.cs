@@ -31,7 +31,7 @@ namespace EmployeestSeed.EntityFactories.Implementation
 
         private int GetRandomProjectId()
         {
-            using (var db = new EmployeestDbContext(Program.Configuration))
+            using (var db = new EmployeestDbContext())
             {
                 List<Project> users = db.Projects.Select(project => project).ToList();
                 Random random = new Random();

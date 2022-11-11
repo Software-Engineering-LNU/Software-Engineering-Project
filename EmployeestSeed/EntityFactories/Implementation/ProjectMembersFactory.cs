@@ -20,7 +20,7 @@ namespace EmployeestSeed.EntityFactories.Implementation
 
         private int GetRandomUserId()
         {
-            using (var db = new EmployeestDbContext(Program.Configuration))
+            using (var db = new EmployeestDbContext())
             {
                 List<User> users = db.Users.Select(user => user).ToList();
                 Random random = new Random();
@@ -31,7 +31,7 @@ namespace EmployeestSeed.EntityFactories.Implementation
 
         private int GetRandomProjectId()
         {
-            using (var db = new EmployeestDbContext(Program.Configuration))
+            using (var db = new EmployeestDbContext())
             {
                 List<Project> projects = db.Projects.Select(project => project).ToList();
                 Random random = new Random();
@@ -42,7 +42,7 @@ namespace EmployeestSeed.EntityFactories.Implementation
 
         private int GetRandomPositionId()
         {
-            using (var db = new EmployeestDbContext(Program.Configuration))
+            using (var db = new EmployeestDbContext())
             {
                 List<Position> positions = db.Positions.Select(position => position).ToList();
                 Random random = new Random();
