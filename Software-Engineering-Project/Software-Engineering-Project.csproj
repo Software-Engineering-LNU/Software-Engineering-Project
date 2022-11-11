@@ -9,6 +9,26 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Assets\AvArr.png" />
+      <None Remove="Assets\Avatar.png" />
+      <None Remove="Assets\BottomArrow.png" />
+      <None Remove="Assets\ChangeSchedule.png" />
+      <None Remove="Assets\Chat.png" />
+      <None Remove="Assets\Employees.png" />
+      <None Remove="Assets\Home.png" />
+      <None Remove="Assets\mini_logo.png" />
+      <None Remove="Assets\NewProject.png" />
+      <None Remove="Assets\Notification2.png" />
+      <None Remove="Assets\Notifications.png" />
+      <None Remove="Assets\Project.png" />
+      <None Remove="Assets\schedule.png" />
+      <None Remove="Assets\Search.png" />
+      <None Remove="Assets\Settings.png" />
+      <None Remove="Assets\Statistics.png" />
+      <None Remove="Assets\Team.png" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="EntityFramework" Version="6.4.4" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     </ItemGroup>
@@ -16,6 +36,60 @@
     <ItemGroup>
       <ProjectReference Include="..\BLL\BLL.csproj" />
       <ProjectReference Include="..\EmployeestSeed\EmployeestSeed.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Assets\AvArr.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Avatar.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\BottomArrow.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\ChangeSchedule.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Chat.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Employees.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Home.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\mini_logo.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\NewProject.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Notification2.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Notifications.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Project.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\schedule.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Search.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Settings.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Statistics.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Assets\Team.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
     </ItemGroup>
 
 </Project>
