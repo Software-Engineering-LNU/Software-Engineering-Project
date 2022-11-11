@@ -1,0 +1,46 @@
+﻿<Window x:Class="Software_Engineering_Project.SignUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Software_Engineering_Project"
+        mc:Ignorable="d"
+        Title="Employeest" Height="750" Width="600"  MinHeight="750" MinWidth="550">
+    <Grid Background="#FFD9D9D9">
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0" Width="268">
+            <Image HorizontalAlignment="Left" Height="54" Margin="10,0,0,0" VerticalAlignment="Center" Width="60" Source="\Assets\mini_logo.png"/>
+            <TextBlock Margin="97,15,17,0" TextWrapping="Wrap" Text="Employeest" VerticalAlignment="Top" FontSize="28" FontFamily="Roboto" Foreground="#FF5A5A5A" FontWeight="Medium" Height="35"/>
+            <Line X1="10" Y1="5" X2="10" Y2="50" Stroke="#FF5A5A5A" StrokeThickness="2" VerticalAlignment="Center" Margin="68,0,176,0" Height="54" />
+        </Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="457">
+            <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="Register" VerticalAlignment="Top" FontSize="24" FontFamily="Roboto" Foreground="#FF5A5A5A" FontWeight="Medium"/>
+            <Grid HorizontalAlignment="Center" Margin="0,85,0,304">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Full name" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
+                <TextBox x:Name="textBoxFullName" TextChanged="textBoxFullNameTextChanged" HorizontalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLines="1" MaxLength="254"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Margin="0,153,0,235">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Phone number" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
+                <TextBox x:Name="textBoxPhoneNumber" TextChanged="textBoxPhoneNumberTextChanged" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Margin="0,222,0,166">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
+                <TextBox x:Name="textBoxEmail" TextChanged="textBoxEmailTextChanged" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Margin="0,291,0,95">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
+                <PasswordBox x:Name="passwordBoxPassword" PasswordChanged="passwordBoxPasswordTextChanged" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Margin="0,362,0,29">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Confirm password" VerticalAlignment="Top" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
+                <PasswordBox x:Name="passwordBoxConfirmPassword" PasswordChanged="passwordBoxConfirmPasswordTextChanged" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="356" FontSize="18" Foreground="#FF5A5A5A" FontFamily="Roboto" Height="34" Background="#FFD9D9D9" BorderBrush="#FF5A5A5A" MaxLength="255"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Margin="0,413,0,10" Width="356">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Already have an account?" VerticalAlignment="Center" FontSize="14" Foreground="#FF5A5A5A" FontFamily="Roboto"/>
+                <Button x:Name="buttonSignIn" Content="Sign in" HorizontalAlignment="Left" VerticalAlignment="Center" Background="{x:Null}" BorderThickness="0,0,0,0" Foreground="#FF5A5A5A" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" Margin="162,0,0,0" Click="buttonSignIn_Clicked"/>
+            </Grid>
+            <Label x:Name="labelErrorMessage" Content="" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" IsEnabled="False" Foreground="Red" FontSize="14" FontFamily="Roboto" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="31"/>
+        </Grid>
+        <Button x:Name="buttonSignUp" Content="Sign up" HorizontalAlignment="Center" Margin="0,583,0,50" VerticalAlignment="Bottom" Width="186" Background="#FF5A5A5A" Foreground="White" FontSize="14" FontFamily="Roboto" Height="40" Click="buttonSignUp_Clicked"/>
+    </Grid>
+</Window>
