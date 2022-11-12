@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Software_Engineering_Project
     /// </summary>
     public partial class SignInWindow : Window
     {
+        private readonly UserService _userService = new UserService();
         public SignInWindow()
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -48,18 +50,21 @@ namespace Software_Engineering_Project
             }
             return true;
         }
-        private void buttonSignIn_Clicked(object sender, RoutedEventArgs e)
+        private async void buttonSignIn_Clicked(object sender, RoutedEventArgs e)
         {
             if(isValidData())
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                bool status = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
+                if (status)
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                    return;
+                }
+                labelErrorMessage.Content = "Invalid login or password";
             }
-            else
-            {
-                labelErrorMessage.Visibility = Visibility.Visible;
-            }
+            labelErrorMessage.Visibility = Visibility.Visible;
         }
         private void buttonSignUp_Clicked(object sender, RoutedEventArgs e)
         {

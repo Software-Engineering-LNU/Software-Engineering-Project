@@ -10,7 +10,6 @@ namespace BLL.Services
     {
         private readonly IUnitOfWork _unitOfWork = new UnitOfWork();
 
-
         public async Task Add(Position position)
         {
             await _unitOfWork.PositionRepository.Add(position);
