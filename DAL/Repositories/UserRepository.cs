@@ -15,11 +15,31 @@ namespace DAL.Repositories
     {
         private readonly EmployeestDbContext _db = new EmployeestDbContext();
 
-        public async Task<bool> Contain(string email, string password)
+        public async Task<int> Contain(string email, string password)
         {
-            bool contain = await _db.Users.AnyAsync(user => user.Email == email && user.Password == password);
-            
-            return contain;
+            try
+            {
+                User user = await _db.Users.SingleAsync(x => x.Email == email && x.Password == password);
+                return user.Id;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return -1;
+            }
+        }
+        public async Task<User> GetUser(int id)
+        {
+            try
+            {
+                User user = await _db.Users.SingleAsync(x => x.Id == id);
+                return user;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return new User();
+            }
         }
     }
 }

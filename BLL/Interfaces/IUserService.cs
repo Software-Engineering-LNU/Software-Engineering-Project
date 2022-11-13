@@ -5,6 +5,7 @@ namespace BLL.Interfaces
 {
     public interface IUserService
     {
-        Task<bool> Login(string email, string password);
+        Task<int> Login(string email, string password);
+        Task<string> GetFullName(int id);
     }
 }

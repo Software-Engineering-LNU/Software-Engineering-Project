@@ -79,7 +79,7 @@ namespace Software_Engineering_Project
         {
             if (isValidData())
             {
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(0);
                 mainWindow.Show();
                 this.Close();
             }

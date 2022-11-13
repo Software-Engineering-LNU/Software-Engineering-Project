@@ -13,10 +13,15 @@ namespace BLL.Services
     {
         private readonly IUnitOfWork _unitOfWork = new UnitOfWork();
 
-        public async Task<bool> Login(string email, string password)
+        public async Task<int> Login(string email, string password)
         {
-            bool status = await _unitOfWork.UserRepository.Contain(email, password);
-            return status;
+            int userId = await _unitOfWork.UserRepository.Contain(email, password);
+            return userId;
+        }
+        public async Task<string> GetFullName(int id)
+        {
+            User user = await _unitOfWork.UserRepository.GetUser(id);
+            return user.FullName;
         }
     }
 }

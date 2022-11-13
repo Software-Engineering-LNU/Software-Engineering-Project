@@ -54,10 +54,10 @@ namespace Software_Engineering_Project
         {
             if(isValidData())
             {
-                bool status = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
-                if (status)
+                int userId = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
+                if (userId != -1)
                 {
-                    MainWindow mainWindow = new MainWindow();
+                    MainWindow mainWindow = new MainWindow(userId);
                     mainWindow.Show();
                     this.Close();
                     return;

@@ -10,6 +10,7 @@ namespace DAL.Interfaces
 {
     public interface IUserRepository
     {
-        Task<bool> Contain(string email, string password);
+        Task<int> Contain(string email, string password);
+        Task<User> GetUser(int id);
     }
 }
