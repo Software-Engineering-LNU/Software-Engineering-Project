@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using BLL.Interfaces;
 using BLL.Services;
+using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositories;
 using Task = System.Threading.Tasks.Task;
@@ -16,14 +18,30 @@ namespace Software_Engineering_Project
         {
             InitializeComponent();
             _userId = userId;
-            setGreeting();
+            setUserData();
             //EmployeestSeed.Program.Run(); // Runs seeder
 
         }
-        public async void setGreeting()
+        public async void setUserData()
         {
-            string fullname = await _userService.GetFullName(_userId);
-            textBlockGreeting.Text = "Welcome, " + fullname;
+            try
+            {
+                User user = await _userService.GetUser(_userId);
+                textBlockGreeting.Text = "Welcome, " + user.FullName;
+                textBlockUserName.Text = user.FullName;
+                if(user.IsBusinessOwner)
+                {
+                    textBlockUserStatus.Text = "Business Owner";
+                }
+                else
+                {
+                    textBlockUserStatus.Text = "Employee";
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Opps! Cannot connect to the server. Please, try again later", "Employeest", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
        

@@ -30,10 +30,10 @@ namespace BLL.Services
             int userId = await _unitOfWork.UserRepository.Contain(email, password);
             return userId;
         }
-        public async Task<string> GetFullName(int id)
+        public async Task<User> GetUser(int id)
         {
             User user = await _unitOfWork.UserRepository.GetUser(id);
-            return user.FullName;
+            return user;
         }
     }
 }
