@@ -20,20 +20,15 @@ namespace BLL.Services
         }
         public async Task<int> Register(string email, string password, string fullname, string phoneNumber, bool isBusinessOwner)
         {
+            User user = new User();
+            user.Email = email;
+            user.Password = password;
+            user.FullName = fullname;
+            user.PhoneNumber = phoneNumber;
+            user.IsBusinessOwner = isBusinessOwner;
+            await _unitOfWork.UserRepository.AddUser(user);
             int userId = await _unitOfWork.UserRepository.Contain(email, password);
-            if(userId == -1)
-            {
-                User user = new User();
-                user.Email = email;
-                user.Password = password;
-                user.FullName = fullname;
-                user.PhoneNumber = phoneNumber;
-                user.IsBusinessOwner = isBusinessOwner;
-                await _unitOfWork.UserRepository.AddUser(user);
-                userId = await _unitOfWork.UserRepository.Contain(email, password);
-                return userId;
-            }
-            return -1;
+            return userId;
         }
         public async Task<string> GetFullName(int id)
         {

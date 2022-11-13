@@ -17,16 +17,8 @@ namespace DAL.Repositories
 
         public async Task<int> Contain(string email, string password)
         {
-            try
-            {
-                User user = await _db.Users.SingleAsync(x => x.Email == email && x.Password == password);
-                return user.Id;
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return -1;
-            }
+            User user = await _db.Users.SingleAsync(x => x.Email == email && x.Password == password);
+            return user.Id;
         }
         public async Task<User> GetUser(int id)
         {

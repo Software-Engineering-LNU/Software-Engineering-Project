@@ -82,15 +82,26 @@ namespace Software_Engineering_Project
         {
             if (isValidData())
             {
-                int userId = await _userService.Register(textBoxEmail.Text, passwordBoxPassword.Password, textBoxFullName.Text, textBoxPhoneNumber.Text, true);
-                if (userId != -1)
+                try
                 {
+                    int userId = await _userService.Register(textBoxEmail.Text, passwordBoxPassword.Password, textBoxFullName.Text, textBoxPhoneNumber.Text, true);
                     MainWindow mainWindow = new MainWindow(userId);
                     mainWindow.Show();
                     this.Close();
                     return;
                 }
-                labelErrorMessage.Content = "This user already exist";
+                catch(Exception exception)
+                {
+                    if (exception.Message == "An error occurred while saving the entity changes. See the inner exception for details.")
+                    {
+                        labelErrorMessage.Content = "This user already exist";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Opps! Cannot connect to the server. Please, try again later", "Employeest", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
             }
             labelErrorMessage.Visibility = Visibility.Visible;
         }

@@ -55,15 +55,26 @@ namespace Software_Engineering_Project
         {
             if(isValidData())
             {
-                int userId = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
-                if (userId != -1)
+                try
                 {
+                    int userId = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
                     MainWindow mainWindow = new MainWindow(userId);
                     mainWindow.Show();
                     this.Close();
                     return;
                 }
-                labelErrorMessage.Content = "Invalid login or password";
+                catch (Exception exception)
+                {
+                    if (exception.Message == "Sequence contains no elements.")
+                    {
+                        labelErrorMessage.Content = "Invalid login or password";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Opps! Cannot connect to the server. Please, try again later", "Employeest", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
             }
             labelErrorMessage.Visibility = Visibility.Visible;
         }
