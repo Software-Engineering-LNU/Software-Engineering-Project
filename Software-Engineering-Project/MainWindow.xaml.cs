@@ -10,7 +10,7 @@ namespace Software_Engineering_Project
 {
     public partial class MainWindow : Window
     {
-        private readonly UserService _userService = new UserService();
+        private readonly IUserService _userService = new UserService();
         private static int _userId;
         public MainWindow(int userId)
         {

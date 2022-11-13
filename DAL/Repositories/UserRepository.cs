@@ -41,5 +41,10 @@ namespace DAL.Repositories
                 return new User();
             }
         }
+        public async Task AddUser(User user)
+        {
+            await _db.Users.AddAsync(user);
+            _db.SaveChanges();
+        }
     }
 }

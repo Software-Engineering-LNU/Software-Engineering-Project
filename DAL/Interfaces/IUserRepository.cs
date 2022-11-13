@@ -12,5 +12,6 @@ namespace DAL.Interfaces
     {
         Task<int> Contain(string email, string password);
         Task<User> GetUser(int id);
+        Task AddUser(User user);
     }
 }

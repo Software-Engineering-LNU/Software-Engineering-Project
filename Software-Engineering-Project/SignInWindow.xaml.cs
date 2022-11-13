@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.Interfaces;
+using BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Software_Engineering_Project
     /// </summary>
     public partial class SignInWindow : Window
     {
-        private readonly UserService _userService = new UserService();
+        private readonly IUserService _userService = new UserService();
         public SignInWindow()
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;

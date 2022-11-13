@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Interfaces;
+using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,7 @@ namespace Software_Engineering_Project
     /// </summary>
     public partial class SignUpWindow : Window
     {
+        private readonly IUserService _userService = new UserService();
         public SignUpWindow()
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -75,18 +78,21 @@ namespace Software_Engineering_Project
             }
             return true;
         }
-        private void buttonSignUp_Clicked(object sender, RoutedEventArgs e)
+        private async void buttonSignUp_Clicked(object sender, RoutedEventArgs e)
         {
             if (isValidData())
             {
-                MainWindow mainWindow = new MainWindow(0);
-                mainWindow.Show();
-                this.Close();
+                int userId = await _userService.Register(textBoxEmail.Text, passwordBoxPassword.Password, textBoxFullName.Text, textBoxPhoneNumber.Text, true);
+                if (userId != -1)
+                {
+                    MainWindow mainWindow = new MainWindow(userId);
+                    mainWindow.Show();
+                    this.Close();
+                    return;
+                }
+                labelErrorMessage.Content = "This user already exist";
             }
-            else
-            {
-                labelErrorMessage.Visibility = Visibility.Visible;
-            }
+            labelErrorMessage.Visibility = Visibility.Visible;
         }
         private void buttonSignIn_Clicked(object sender, RoutedEventArgs e)
         {
