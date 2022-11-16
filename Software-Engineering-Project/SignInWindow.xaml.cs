@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using BLL.Interfaces;
+using BLL.Services;
+using System;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Software_Engineering_Project
 {
@@ -20,6 +12,7 @@ namespace Software_Engineering_Project
     /// </summary>
     public partial class SignInWindow : Window
     {
+        private readonly IUserService _userService = new UserService();
         public SignInWindow()
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -48,18 +41,32 @@ namespace Software_Engineering_Project
             }
             return true;
         }
-        private void buttonSignIn_Clicked(object sender, RoutedEventArgs e)
+        private async void buttonSignIn_Clicked(object sender, RoutedEventArgs e)
         {
             if(isValidData())
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                try
+                {
+                    int userId = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
+                    MainWindow mainWindow = new MainWindow(userId);
+                    mainWindow.Show();
+                    this.Close();
+                    return;
+                }
+                catch (Exception exception)
+                {
+                    if (exception.Message == "Sequence contains no elements.")
+                    {
+                        labelErrorMessage.Content = "Invalid login or password";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Opps! Cannot connect to the server. Please, try again later", "Employeest", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
             }
-            else
-            {
-                labelErrorMessage.Visibility = Visibility.Visible;
-            }
+            labelErrorMessage.Visibility = Visibility.Visible;
         }
         private void buttonSignUp_Clicked(object sender, RoutedEventArgs e)
         {

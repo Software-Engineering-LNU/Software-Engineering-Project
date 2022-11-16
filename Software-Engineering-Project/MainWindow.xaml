@@ -49,7 +49,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Text="Home" FontFamily="Roboto" FontSize="14"/>
-                <TextBlock Grid.Row="1" Text="Welcome, User Name" FontFamily="Roboto" FontSize="20" FontWeight="Medium"/>
+                <TextBlock x:Name="textBlockGreeting" Grid.Row="1" Text="Welcome, User Name" FontFamily="Roboto" FontSize="20" FontWeight="Medium"/>
             </Grid>
             <Grid Grid.Row="1" x:Name="MainWorkSpace">
 
@@ -85,8 +85,8 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="User Name" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" FontWeight="Medium" FontFamily="Roboto" />
-                        <TextBlock Grid.Row="1" Text="Employee" HorizontalAlignment="Right" VerticalAlignment="top" FontSize="12" FontWeight="Light" FontFamily="Roboto" />
+                        <TextBlock x:Name="textBlockUserName" Grid.Row="0" Text="User Name" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" FontWeight="Medium" FontFamily="Roboto" />
+                        <TextBlock x:Name="textBlockUserStatus" Grid.Row="1" Text="Employee" HorizontalAlignment="Right" VerticalAlignment="top" FontSize="12" FontWeight="Light" FontFamily="Roboto" />
 
                     </Grid>
                     <Grid Grid.Column="1" x:Name="Profile" HorizontalAlignment="Right">
