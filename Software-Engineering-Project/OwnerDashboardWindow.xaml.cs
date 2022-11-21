@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BLL.Interfaces;
+using BLL.Services;
+using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +22,44 @@ namespace Software_Engineering_Project
     /// </summary>
     public partial class OwnerDashboardWindow : Window
     {
-        public OwnerDashboardWindow()
+        private readonly IUserService _userService = new UserService();
+        private readonly IProjectService _projectService = new ProjectService();
+        private static int _userId;
+
+        public OwnerDashboardWindow(int userId)
         {
             InitializeComponent();
+            _userId = userId;
+            setUserData();
+            setUserProjectsData();
+        }
+
+        public async void setUserData()
+        {
+            try
+            {
+                User user = await _userService.GetUser(_userId);
+                textBlockGreeting.Text = "Welcome, " + user.FullName;
+                textBlockUserName.Text = user.FullName;
+                if (user.IsBusinessOwner)
+                {
+                    textBlockUserStatus.Text = "Business Owner";
+                }
+                else
+                {
+                    textBlockUserStatus.Text = "Employee";
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Opps! Cannot connect to the server. Please, try again later", "Employeest", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public async void setUserProjectsData()
+        {
+            var projects = await _projectService.getProjectsByUserId(_userId);
+            ProjectsList.ItemsSource = projects;
         }
     }
 }
