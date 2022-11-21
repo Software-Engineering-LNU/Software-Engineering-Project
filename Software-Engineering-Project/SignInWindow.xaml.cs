@@ -48,7 +48,16 @@ namespace Software_Engineering_Project
                 try
                 {
                     int userId = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
-                    MainWindow mainWindow = new MainWindow(userId);
+                    Window mainWindow;
+                    if (!_userService.GetUser(userId).Result.IsBusinessOwner)
+                    {
+                        mainWindow = new MainWindowEmployee(userId);
+                    }
+                    else
+                    {
+                        //Change for business owner
+                        mainWindow = new MainWindowEmployee(userId);
+                    }
                     mainWindow.Show();
                     this.Close();
                     return;
