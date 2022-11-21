@@ -48,7 +48,7 @@ namespace Software_Engineering_Project
                 try
                 {
                     int userId = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
-                    MainWindow mainWindow = new MainWindow(userId);
+                    MainWindowEmployee mainWindow = new MainWindowEmployee(userId);
                     mainWindow.Show();
                     this.Close();
                     return;
