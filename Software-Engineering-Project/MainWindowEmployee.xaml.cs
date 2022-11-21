@@ -17,6 +17,7 @@ namespace Software_Engineering_Project
         private readonly IEventService _eventService = new EventService();
         private readonly IProjectService _projectService = new ProjectService();
         private readonly ITeamService _teamService = new TeamService();
+        private readonly ITaskService _taskService = new TasksService();
         private static int _userId;
         public MainWindowEmployee(int userId)
         {
@@ -55,6 +56,8 @@ namespace Software_Engineering_Project
             ProjectsList.ItemsSource = projects;
             var teammates = await _teamService.getTeamMembersByUserId(_userId);
             TeamMatesList.ItemsSource = teammates;
+            var tasks = await _taskService.getTasksByUserId(_userId);
+            TasksList.ItemsSource = tasks;
 
             NumberOfProjects.Text = $"My projects [ {projects.Count} ]";
             NumberOfTeammates.Text = $"My teammates [ {teammates.Count} ]";
