@@ -38,5 +38,10 @@ namespace DAL.Repositories
             await _db.Users.AddAsync(user);
             _db.SaveChanges();
         }
+
+        public async Task<List<User>> GetAllUsers()
+        {
+            return await _db.Users.ToListAsync();
+        }
     }
 }

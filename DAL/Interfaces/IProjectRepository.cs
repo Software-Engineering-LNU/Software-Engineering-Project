@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Task = System.Threading.Tasks.Task;
 
 namespace DAL.Interfaces
 {
-    public interface IPositionRepository
+    public interface IProjectRepository
     {
-        Task Add(Position position);
-        Task<Position> GetPositionById(int id);
+        Task<List<Project>> getListOfProjectsByUserId(int id);
+        Task<Project> GetProjectById(int id);
     }
 }

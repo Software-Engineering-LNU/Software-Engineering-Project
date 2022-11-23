@@ -29,7 +29,6 @@
             </Grid>
             <Label x:Name="labelErrorMessage" Content="" HorizontalAlignment="Center" Margin="0,54,0,0" VerticalAlignment="Top" IsEnabled="False" Foreground="Red" FontSize="14" FontFamily="Roboto" Width="232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="31"/>
         </Grid>
-        <Button x:Name="buttonSignIn" Content="Sign in" HorizontalAlignment="Center" Margin="0,382,0,40" VerticalAlignment="Bottom" Width="186" Background="#FF5A5A5A" Foreground="White" FontSize="14" FontFamily="Roboto" Height="40" Click="buttonSignIn_Clicked"/>
-
+        <Button x:Name="buttonSignIn" Content="Sign in" HorizontalAlignment="Center" Margin="0,382,0,40" VerticalAlignment="Bottom" Width="186" Background="#FF5A5A5A" Foreground="White" FontSize="14" FontFamily="Roboto" Height="40" Click="buttonSignIn_Clicked" />
     </Grid>
 </Window>

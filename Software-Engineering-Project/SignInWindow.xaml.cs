@@ -1,5 +1,6 @@
 ﻿using BLL.Interfaces;
 using BLL.Services;
+using Software_Engineering_Project.View;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -48,8 +49,10 @@ namespace Software_Engineering_Project
                 try
                 {
                     int userId = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
-                    MainWindow mainWindow = new MainWindow(userId);
-                    mainWindow.Show();
+                    //MainWindow mainWindow = new MainWindow(userId);
+                    //mainWindow.Show();
+                    EmployeeListView employeeWindow = new EmployeeListView();
+                    employeeWindow.Show();
                     this.Close();
                     return;
                 }
@@ -73,6 +76,11 @@ namespace Software_Engineering_Project
             SignUpWindow signUpWindow = new SignUpWindow();
             signUpWindow.Show();
             this.Close();
+        }
+
+        private void buttonSignIn_TouchEnter(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+
         }
     }
 }

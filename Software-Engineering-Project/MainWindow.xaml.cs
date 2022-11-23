@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using BLL.Interfaces;
+using BLL.Models;
 using BLL.Services;
 using DAL.Entities;
 using DAL.Interfaces;
@@ -17,19 +19,30 @@ namespace Software_Engineering_Project
         public MainWindow(int userId)
         {
             InitializeComponent();
-            _userId = userId;
-            setUserData();
             //EmployeestSeed.Program.Run(); // Runs seeder
+            _userId = userId;
+            SetUserData();
+            Test();
 
         }
-        public async void setUserData()
+        
+        private async void Test()
+        {
+            var users = await _userService.GetUsersList();
+            foreach(var user in users)
+            {
+                System.Diagnostics.Debug.WriteLine(user.Email);
+            }
+        }
+
+        public async void SetUserData()
         {
             try
             {
                 User user = await _userService.GetUser(_userId);
                 textBlockGreeting.Text = "Welcome, " + user.FullName;
                 textBlockUserName.Text = user.FullName;
-                if(user.IsBusinessOwner)
+                if (user.IsBusinessOwner)
                 {
                     textBlockUserStatus.Text = "Business Owner";
                 }
@@ -44,6 +57,6 @@ namespace Software_Engineering_Project
             }
         }
 
-       
+
     }
 }
