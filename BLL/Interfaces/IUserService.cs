@@ -9,6 +9,6 @@ namespace BLL.Interfaces
         Task<int> Login(string email, string password);
         Task<int> Register(string email, string password, string fullname, string phoneNumber, bool isBusinessOwner);
         Task<User> GetUser(int id);
-        Task<List<UsersListModel>> GetUsersList();
+        Task<List<EmployeesListModel>> GetEmployeesList();
     }
 }

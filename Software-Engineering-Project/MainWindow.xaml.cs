@@ -16,25 +16,15 @@ namespace Software_Engineering_Project
     {
         private readonly IUserService _userService = new UserService();
         private static int _userId;
+
         public MainWindow(int userId)
         {
             InitializeComponent();
             //EmployeestSeed.Program.Run(); // Runs seeder
             _userId = userId;
             SetUserData();
-            Test();
-
         }
         
-        private async void Test()
-        {
-            var users = await _userService.GetUsersList();
-            foreach(var user in users)
-            {
-                System.Diagnostics.Debug.WriteLine(user.Email);
-            }
-        }
-
         public async void SetUserData()
         {
             try
@@ -56,7 +46,5 @@ namespace Software_Engineering_Project
                 MessageBox.Show("Opps! Cannot connect to the server. Please, try again later", "Employeest", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-
     }
 }

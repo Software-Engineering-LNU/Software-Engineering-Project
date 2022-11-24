@@ -38,12 +38,11 @@ namespace BLL.Services
             return await _unitOfWork.UserRepository.GetUser(id);
         }
 
-        public async Task<List<UsersListModel>> GetUsersList()
-        {
-            List<UsersListModel> usersList = new List<UsersListModel>();
 
-            //try
-            //{
+        public async Task<List<EmployeesListModel>> GetEmployeesList()
+        {
+            List<EmployeesListModel> usersList = new List<EmployeesListModel>();
+
             List<User> users = await _unitOfWork.UserRepository.GetAllUsers();
             foreach (var user in users)
             {
@@ -56,7 +55,7 @@ namespace BLL.Services
 
                     if (project is not null && team is not null && position is not null)
                     {
-                        usersList.Add(new UsersListModel
+                        usersList.Add(new EmployeesListModel
                         {
                             Fullname = user.FullName,
                             Email = user.Email,
@@ -68,11 +67,6 @@ namespace BLL.Services
                     }
                 }
             }
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(ex.Message);
-            //}
 
             return usersList;
         }

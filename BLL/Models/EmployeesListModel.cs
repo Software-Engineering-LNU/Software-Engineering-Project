@@ -1,6 +1,6 @@
 ﻿namespace BLL.Models
 {
-    public sealed class UsersListModel
+    public sealed class EmployeesListModel
     {
         public string Fullname { get; set; }
         public string Email { get; set; }
