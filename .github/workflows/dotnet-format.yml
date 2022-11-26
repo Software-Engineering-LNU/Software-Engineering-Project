@@ -1,7 +1,6 @@
-name: Format on slash command
+name: Auto-format
 on:
-  issue_comment:
-    types: created
+  push:
     branches:
       [task/27-create-github-action-to-auto-format-code]
       
@@ -48,9 +47,7 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -a -m 'Automated dotnet-format update
-
-          Co-authored-by: ${{ github.event.comment.user.login }} <${{ github.event.comment.user.id }}+${{ github.event.comment.user.login }}@users.noreply.github.com>'
+          git commit -a -m 'Automated dotnet-format update'
 
       - name: Push changes
         if: steps.command.outputs.command-name && steps.command.outputs.command-arguments == 'format' && steps.format.outputs.has-changes == 'true'
