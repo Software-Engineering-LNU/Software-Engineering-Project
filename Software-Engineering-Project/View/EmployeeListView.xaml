@@ -8,54 +8,68 @@
       d:DesignHeight="970" d:DesignWidth="1758"
       Title="EmployeeListView">
 
-    <Border Padding="25" Background="#fafbfc">
-        <StackPanel Background="#fafbfc" Orientation="Vertical">
+    <StackPanel Background="#fafbfc" Orientation="Vertical">
 
+        <StackPanel Orientation="Horizontal" Height="80">
 
-            <StackPanel Orientation="Horizontal" Height="80">
-                <TextBlock Margin="60,10,0,0" TextWrapping="Wrap" Text="Employees" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Roboto" Foreground="#3F3F3F" FontWeight="Light" Height="38" Width="125"/>
-                <Border Width="35" Height="35" Margin="0,0,0,0" CornerRadius="50" Background="#D9D9D9" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock x:Name="employeeCountTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center"
+            <TextBlock Margin="60,10,0,0" TextWrapping="Wrap" Text="Employees" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontFamily="Roboto" Foreground="#3F3F3F" FontWeight="Light" Height="38" Width="125"/>
+
+            <Border Width="35" Height="35" Margin="0,2,0,0" CornerRadius="50" Background="#D9D9D9" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock x:Name="employeeCountTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center"
                  FontSize="16" Foreground="#3F3F3F">62</TextBlock>
-                </Border>
-                <Button x:Name="addButton" Content="Add +" Margin="76,0,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Roboto" FontWeight="Light" Height="40" Width="136"/>
-                <TextBox Margin="76,0,0,0" Text="Search" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontWeight="Light" Width="410" Height="30" TextAlignment="Left" Padding="2,8,0,0"/>
-                <Button Margin="306,0,0,0" Background="Transparent" BorderThickness="0" Width="40" Height="45">
-                    <Image Source="\Assets\Notifications.png"/>
+            </Border>
+
+            <Button x:Name="addButton" Content="Add +" Margin="76,0,0,0" VerticalAlignment="Center" FontSize="20" FontFamily="Roboto" FontWeight="Light" Height="40" Width="136"/>
+
+            <Grid Margin="76,0,0,0" VerticalAlignment="Center">
+                <TextBox x:Name="searchTextBox" Text="Enter Fullname" KeyDown="searchTextBox_KeyDown" MouseEnter="searchTextBox_MouseEnter" Padding="5,5,0,0" Foreground="#3F3F3F" FontSize="16" FontFamily="Roboto" FontWeight="Light" Height="30" Width="410"/>
+                <Button Click="ButtonSearch_Click" Width="25" Height="25" HorizontalAlignment="Right" Margin="0,0,5,0" Background="Transparent" BorderThickness="0">
+                    <Image Source="\Assets\Search.png"/>
                 </Button>
-                <Button Margin="40,0,0,0" Background="Transparent" BorderThickness="0" Width="40" Height="45">
-                    <Image Source="\Assets\Settings.png"/>
-                </Button>
-            </StackPanel>
+            </Grid>
 
-            <StackPanel Orientation="Vertical" x:Name="listStackPanel">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="88"/>
-                    </Grid.RowDefinitions>
+            <Button Margin="306,0,0,0" Background="Transparent" BorderThickness="0" Width="40" Height="45">
+                <Image Source="\Assets\Notifications.png"/>
+            </Button>
 
-                    <TextBlock Text="Employee" Grid.Column="0" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
-                    <TextBlock Text="E-mail" Grid.Column="1" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
-                    <TextBlock Text="Project" Grid.Column="2" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
-                    <TextBlock Text="Team" Grid.Column="3" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
-                    <TextBlock Text="Position" Grid.Column="4" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
-                    <TextBlock Text="Salary" Grid.Column="6" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
-                </Grid>
+            <Button Margin="40,0,0,0" Background="Transparent" BorderThickness="0" Width="40" Height="45">
+                <Image Source="\Assets\Settings.png"/>
+            </Button>
 
-                <Line X1="0" Y1="0" X2="1600" Y2="0" Stroke="#FF5A5A5A" StrokeThickness="2" VerticalAlignment="Center" Margin="10,0,100,0"  />
-                <!--<Line X1="260" Y1="188" X2="260"  Stroke="#FF5A5A5A" StrokeThickness="2" VerticalAlignment="Center" Margin="20,0,0,0"  />-->
-
-                <!--Here will be other rows-->
-
-            </StackPanel>
         </StackPanel>
-    </Border>
+
+
+
+        <StackPanel Orientation="Vertical" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="88"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Employee" Grid.Column="0" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
+                <TextBlock Text="E-mail" Grid.Column="1" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
+                <TextBlock Text="Project" Grid.Column="2" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
+                <TextBlock Text="Team" Grid.Column="3" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
+                <TextBlock Text="Position" Grid.Column="4" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
+                <TextBlock Text="Salary" Grid.Column="5" Margin="20,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="14" FontFamily="Roboto" FontWeight="Light" Height="17" Width="62" Foreground="#000000"/>
+            </Grid>
+
+            <Line X1="0" Y1="0" X2="1600" Y2="0" Stroke="#FF5A5A5A" StrokeThickness="2" VerticalAlignment="Center" Margin="10,0,100,0"  />
+
+            <ScrollViewer x:Name="scrollViewer" VerticalScrollBarVisibility="Visible" CanContentScroll="True" Height="700">
+                <StackPanel Orientation="Vertical" x:Name="listStackPanel">
+                    <!--Here will be other rows-->
+                </StackPanel>
+            </ScrollViewer>
+
+        </StackPanel>
+    </StackPanel>
 </Window>

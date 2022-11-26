@@ -1,7 +1,10 @@
 ﻿using BLL.Interfaces;
 using BLL.Models;
 using BLL.Services;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -15,25 +18,48 @@ namespace Software_Engineering_Project.View
     public partial class EmployeeListView : Window
     {
         private readonly IUserService _userService = new UserService();
-        private ObservableCollection<EmployeesListModel> _employees = new ObservableCollection<EmployeesListModel>();
+        private List<EmployeesListModel> _employees = new List<EmployeesListModel>();
 
         public EmployeeListView()
         {
             InitializeComponent();
-            SetEmployeesList();
+            InitializeEmployeesList();
         }
 
 
-        private async void SetEmployeesList()
+        private async void InitializeEmployeesList()
         {
+            await SetEmployeesList();
+            SetGrid();
+        }
+
+
+        // Adds all users to _employees
+        private async Task SetEmployeesList()
+        {
+            _employees.Clear();
+
             foreach (var employee in await _userService.GetEmployeesList())
             {
                 _employees.Add(employee);
             }
+        }
 
 
+        // Adds users to _employees based on search 
+        private async Task SetEmployeesListBySearch(string searchText)
+        {
+            _employees.Clear();
+
+            var employees = await _userService.GetEmployeesList();
+            var searchResult = employees.Where(e => e.Fullname.Contains(searchText)).ToList();
+
+            searchResult.ForEach(x => _employees.Add(x));
+        }
 
 
+        private void SetGrid()
+        {
             foreach (var e in _employees)
             {
                 Grid grid = new Grid();
@@ -139,7 +165,7 @@ namespace Software_Engineering_Project.View
 
 
                 TextBlock salaryTextBlock = new TextBlock();
-                salaryTextBlock.Text = e.Salary.ToString()+ "$";
+                salaryTextBlock.Text = e.Salary.ToString() + "$";
                 salaryTextBlock.VerticalAlignment = VerticalAlignment.Center;
                 salaryTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
                 salaryTextBlock.Margin = new Thickness(20, 0, 0, 0);
@@ -165,5 +191,34 @@ namespace Software_Engineering_Project.View
 
 
         }
+
+
+        private async void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(searchTextBox.Text);
+            listStackPanel.Children.Clear();
+            await SetEmployeesListBySearch(searchTextBox.Text);
+            SetGrid();
+        }
+
+
+        private void searchTextBox_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (searchTextBox.Text == "Enter Fullname")
+            {
+                searchTextBox.Text = "";
+            }
+        }
+
+
+        private void searchTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                ButtonSearch_Click(sender, e);
+            }
+        }
+
+
     }
 }
