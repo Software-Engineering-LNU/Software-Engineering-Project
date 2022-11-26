@@ -8,6 +8,11 @@ jobs:
   dotnet-format:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+      
       - name: Restore dotnet tools
         uses: xt0rted/dotnet-tool-restore@v1
 
@@ -16,12 +21,7 @@ jobs:
 
       - name: Run dotnet format
         id: format
-        uses: xt0rted/dotnet-format@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          action: "fix"
-          only-changed-files: false
-          folder: "."
+        run: dotnet format --no-restore
 
       - name: Commit files
         run: |
