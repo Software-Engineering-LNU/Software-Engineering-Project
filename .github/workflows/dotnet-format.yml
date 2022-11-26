@@ -21,7 +21,7 @@ jobs:
 
       - name: Run dotnet format
         id: format
-        run: dotnet-format --no-restore
+        run: dotnet-format --files **.cs --folder .
 
       - name: Commit files
         run: |
