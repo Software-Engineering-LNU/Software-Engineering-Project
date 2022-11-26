@@ -8,14 +8,6 @@ jobs:
   dotnet-format:
     runs-on: windows-latest
     steps:
-      - name: Check for command
-        id: command
-        uses: xt0rted/slash-command-action@v1
-        continue-on-error: true
-        with:
-          command: dotnet
-          reaction-type: "eyes"
-
       - name: Get branch info
         if: steps.command.outputs.command-name
         id: comment-branch
