@@ -13,6 +13,9 @@ jobs:
         with:
           ref: ${{ steps.comment-branch.outputs.ref }}
           persist-credentials: false
+  
+      - name: Add dotnet-format problem matcher
+        uses: xt0rted/dotnet-format-problem-matcher@v1
 
       - name: Restore dotnet tools
         uses: xt0rted/dotnet-tool-restore@v1
