@@ -24,7 +24,7 @@ jobs:
 
       - name: Run dotnet format
         id: format
-        run: dotnet-format --files **.cs -v detailed
+        run: dotnet-format -v detailed
 
       - name: Commit files and push
         run: |
