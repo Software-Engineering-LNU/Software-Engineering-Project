@@ -15,7 +15,7 @@ namespace Software_Engineering_Project
     public partial class MainWindow : Window
     {
         private readonly IUserService _userService = new UserService();
-        private static int _userId;
+        private readonly int _userId;
 
         public MainWindow(int userId)
         {

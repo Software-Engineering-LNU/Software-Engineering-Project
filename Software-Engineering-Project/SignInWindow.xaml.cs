@@ -49,10 +49,8 @@ namespace Software_Engineering_Project
                 try
                 {
                     int userId = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
-                    //MainWindow mainWindow = new MainWindow(userId);
-                    //mainWindow.Show();
-                    EmployeeListView employeeWindow = new EmployeeListView();
-                    employeeWindow.Show();
+                    MainWindow mainWindow = new MainWindow(userId);
+                    mainWindow.Show();
                     this.Close();
                     return;
                 }

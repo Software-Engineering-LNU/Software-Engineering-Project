@@ -2,13 +2,11 @@
 using BLL.Models;
 using BLL.Services;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Shapes;
 
 namespace Software_Engineering_Project.View
 {
@@ -18,11 +16,15 @@ namespace Software_Engineering_Project.View
     public partial class EmployeeListView : Window
     {
         private readonly IUserService _userService = new UserService();
-        private List<EmployeesListModel> _employees = new List<EmployeesListModel>();
 
-        public EmployeeListView()
+        private List<EmployeesListModel> _employees = new List<EmployeesListModel>();
+        private readonly int _userId;
+
+        public EmployeeListView(int userId)
         {
             InitializeComponent();
+            _userId = userId;
+            SetUserData();
             InitializeEmployeesList();
         }
 
@@ -30,6 +32,7 @@ namespace Software_Engineering_Project.View
         private async void InitializeEmployeesList()
         {
             await SetEmployeesList();
+            employeeCountTextBlock.Text = _employees.Count.ToString();
             SetGrid();
         }
 
@@ -52,9 +55,25 @@ namespace Software_Engineering_Project.View
             _employees.Clear();
 
             var employees = await _userService.GetEmployeesList();
-            var searchResult = employees.Where(e => e.Fullname.Contains(searchText)).ToList();
+            var searchResult = employees.Where(e => e.Fullname.ToLower().Contains(searchText.ToLower())).ToList();
 
             searchResult.ForEach(x => _employees.Add(x));
+        }
+
+
+        public async void SetUserData()
+        {
+
+            var user = await _userService.GetUser(_userId);
+            userNameTextBlock.Text = user.FullName;
+            if (user.IsBusinessOwner)
+            {
+                userStatusTextBlock.Text = "Business Owner";
+            }
+            else
+            {
+                userStatusTextBlock.Text = "Employee";
+            }
         }
 
 
@@ -218,7 +237,5 @@ namespace Software_Engineering_Project.View
                 ButtonSearch_Click(sender, e);
             }
         }
-
-
     }
 }
