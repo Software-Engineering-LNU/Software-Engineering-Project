@@ -7,7 +7,7 @@ namespace DAL.Repositories;
 public class TeamRepository : ITeamRepository
 {
     private readonly EmployeestDbContext _db = new EmployeestDbContext();
-    
+
     public async Task<List<User>> getTeamByUserId(int id)
     {
         HashSet<int> teamIds = new HashSet<int>();

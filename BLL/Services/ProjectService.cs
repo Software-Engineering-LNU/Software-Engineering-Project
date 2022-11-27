@@ -4,7 +4,7 @@ using DAL.Repositories;
 
 namespace BLL.Services;
 
-public class ProjectService: IProjectService
+public class ProjectService : IProjectService
 {
     public Task<List<Project>> getProjectsByUserId(int id)
     {

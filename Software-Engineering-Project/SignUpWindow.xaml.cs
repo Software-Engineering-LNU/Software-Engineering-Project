@@ -41,7 +41,7 @@ namespace Software_Engineering_Project
         }
         private bool isValidData()
         {
-            if(!Regex.IsMatch(textBoxFullName.Text, "^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$"))
+            if (!Regex.IsMatch(textBoxFullName.Text, "^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$"))
             {
                 labelErrorMessage.Content = "Invalid full name input";
                 return false;
@@ -80,7 +80,7 @@ namespace Software_Engineering_Project
                     this.Close();
                     return;
                 }
-                catch(Exception exception)
+                catch (Exception exception)
                 {
                     if (exception.Message == "An error occurred while saving the entity changes. See the inner exception for details.")
                     {

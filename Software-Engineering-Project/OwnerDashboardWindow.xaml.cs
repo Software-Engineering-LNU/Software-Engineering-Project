@@ -26,11 +26,13 @@ namespace Software_Engineering_Project
         private readonly IProjectService _projectService = new ProjectService();
         private static int _userId;
 
-        public OwnerDashboardWindow( int userId )
-        {      InitializeComponent();
-            _userId=userId;
+        public OwnerDashboardWindow(int userId)
+        {
+            InitializeComponent();
+            _userId = userId;
             setUserData();
-            setUserProjectsData();  }
+            setUserProjectsData();
+        }
 
         public async void setUserData()
         {
