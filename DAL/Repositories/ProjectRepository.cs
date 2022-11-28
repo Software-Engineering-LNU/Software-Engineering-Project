@@ -4,10 +4,10 @@ using DAL.Interfaces;
 
 namespace DAL.Repositories;
 
-public class ProjectRepository: IProjectRepository
+public class ProjectRepository : IProjectRepository
 {
     private readonly EmployeestDbContext _db = new EmployeestDbContext();
-    
+
     public async Task<List<Project>> getListOfProjectsByUserId(int id)
     {
         HashSet<int> projectIds = new HashSet<int>();

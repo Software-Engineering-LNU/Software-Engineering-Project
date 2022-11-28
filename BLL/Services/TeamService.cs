@@ -4,7 +4,7 @@ using DAL.Repositories;
 
 namespace BLL.Services;
 
-public class TeamService: ITeamService
+public class TeamService : ITeamService
 {
     public Task<List<User>> getTeamMembersByUserId(int id)
     {

@@ -15,17 +15,17 @@ namespace DAL.Data
             //connectionString = configuration["ConnectionStrings:employeestConnectionString"];
             connectionString = ConfigurationManager.ConnectionStrings["employeestConnectionString"].ConnectionString;
         }
-        
+
         public DbSet<Event> Events { get; set; }
         public DbSet<EventMember> EventMembers { get; set; }
-        public DbSet<Permission> Permissions { get; set; } 
+        public DbSet<Permission> Permissions { get; set; }
         public DbSet<Position> Positions { get; set; }
-        public DbSet<PositionPermission> PositionPermissions { get; set; } 
-        public DbSet<Project> Projects { get; set; } 
-        public DbSet<ProjectMember> ProjectMembers { get; set; } 
-        public DbSet<Entities.Task> Tasks { get; set; } 
-        public DbSet<Team> Teams { get; set; } 
-        public DbSet<TeamMember> TeamMembers { get; set; } 
+        public DbSet<PositionPermission> PositionPermissions { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<ProjectMember> ProjectMembers { get; set; }
+        public DbSet<Entities.Task> Tasks { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<User> Users { get; set; }
 
 
@@ -55,12 +55,12 @@ namespace DAL.Data
 
             modelBuilder.Entity<EventMember>(entity =>
             {
-                
+
 
                 entity.ToTable("event_members");
 
                 entity.Property(e => e.Id).HasColumnName("id");
-                    
+
                 entity.Property(e => e.EventId).HasColumnName("event_id");
 
                 entity.Property(e => e.UserId).HasColumnName("user_id");
