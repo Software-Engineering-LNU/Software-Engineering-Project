@@ -3,10 +3,14 @@ using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace DAL.Repositories
-{
 
-    public class ProjectRepository : IProjectRepository
+namespace DAL.Repositories;
+
+public class ProjectRepository : IProjectRepository
+{
+    private readonly EmployeestDbContext _db = new EmployeestDbContext();
+
+    public async Task<List<Project>> getListOfProjectsByUserId(int id)
     {
         private readonly EmployeestDbContext _db = new EmployeestDbContext();
 

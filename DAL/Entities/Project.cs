@@ -14,7 +14,7 @@ namespace DAL.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public int OwnerId { get; set; }
-        public User Owner { get; set; } 
+        public User Owner { get; set; }
         public ICollection<Team> Teams { get; set; }
     }
 }

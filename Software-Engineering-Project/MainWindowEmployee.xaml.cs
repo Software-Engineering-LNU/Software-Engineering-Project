@@ -34,7 +34,7 @@ namespace Software_Engineering_Project
                 User user = await _userService.GetUser(_userId);
                 textBlockGreeting.Text = "Welcome, " + user.FullName;
                 textBlockUserName.Text = user.FullName;
-                if(user.IsBusinessOwner)
+                if (user.IsBusinessOwner)
                 {
                     textBlockUserStatus.Text = "Business Owner";
                 }
@@ -48,7 +48,7 @@ namespace Software_Engineering_Project
                 MessageBox.Show("Opps! Cannot connect to the server. Please, try again later", "Employeest", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
         public async void setUserEventsData()
         {
             EventsList.ItemsSource = await _eventService.getEventsByUserId(_userId);

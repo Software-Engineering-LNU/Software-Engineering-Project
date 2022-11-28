@@ -4,7 +4,7 @@ using Task = DAL.Entities.Task;
 
 namespace BLL.Services;
 
-public class TasksService: ITaskService
+public class TasksService : ITaskService
 {
     public Task<List<Task>> getTasksByUserId(int userId)
     {

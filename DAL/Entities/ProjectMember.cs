@@ -11,7 +11,7 @@ namespace DAL.Entities
         public int PositionId { get; set; }
         public double Salary { get; set; }
         public Position Position { get; set; }
-        public Project Project { get; set; } 
+        public Project Project { get; set; }
         public User User { get; set; }
     }
 }

@@ -9,6 +9,6 @@ namespace DAL.Entities
         public int PositionId { get; set; }
         public int PermissionId { get; set; }
         public Permission Permission { get; set; }
-        public Position Position { get; set; } 
+        public Position Position { get; set; }
     }
 }
