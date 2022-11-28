@@ -62,5 +62,11 @@ namespace Software_Engineering_Project
             NumberOfProjects.Text = $"My projects [ {projects.Count} ]";
             NumberOfTeammates.Text = $"My teammates [ {teammates.Count} ]";
         }
+
+        private void ButtonTeam_Click(object sender, RoutedEventArgs e)
+        {
+            MyTeamDashboardWindow myTeamDashboardWindow = new MyTeamDashboardWindow(_userId);
+            myTeamDashboardWindow.ShowDialog();
+        }
     }
 }

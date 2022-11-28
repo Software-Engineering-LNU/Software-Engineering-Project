@@ -84,5 +84,10 @@ namespace Software_Engineering_Project
             signUpWindow.Show();
             this.Close();
         }
+
+        private void buttonSignIn_TouchEnter(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+
+        }
     }
 }

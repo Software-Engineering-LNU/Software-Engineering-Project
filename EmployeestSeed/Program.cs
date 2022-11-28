@@ -9,14 +9,6 @@ namespace EmployeestSeed
 
         public static void Run()
         {
-            var builder = new ConfigurationBuilder()
-                                    .SetBasePath(Directory.GetCurrentDirectory())
-                                    .AddJsonFile("appsettings.json");
-            Configuration = builder.Build();
-
-            System.Diagnostics.Debug.WriteLine(Directory.GetCurrentDirectory());
-            Console.WriteLine(Directory.GetCurrentDirectory());
-
             EmployeestSeedData.SeedData(50);
         }
     }

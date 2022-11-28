@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using BLL.Interfaces;
+using BLL.Models;
 using BLL.Services;
 using DAL.Entities;
 using DAL.Interfaces;
@@ -13,16 +15,17 @@ namespace Software_Engineering_Project
     public partial class MainWindow : Window
     {
         private readonly IUserService _userService = new UserService();
-        private static int _userId;
+        private readonly int _userId;
+
         public MainWindow(int userId)
         {
             InitializeComponent();
-            _userId = userId;
-            setUserData();
             //EmployeestSeed.Program.Run(); // Runs seeder
-
+            _userId = userId;
+            SetUserData();
         }
-        public async void setUserData()
+        
+        public async void SetUserData()
         {
             try
             {
@@ -43,7 +46,5 @@ namespace Software_Engineering_Project
                 MessageBox.Show("Opps! Cannot connect to the server. Please, try again later", "Employeest", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-
     }
 }

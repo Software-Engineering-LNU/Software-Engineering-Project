@@ -1,8 +1,11 @@
-using DAL.Entities;
+﻿using DAL.Entities;
+using Npgsql.PostgresTypes;
 
-namespace DAL.Interfaces;
-
-public interface ITeamRepository
+namespace DAL.Interfaces
 {
-    Task<List<User>> getTeamByUserId(int id);
+    public interface ITeamRepository
+    {
+        Task<List<User>> getTeamByUserId(int id);
+        Task<Team> GetTeamByProjectId(int projectId);
+    }
 }
