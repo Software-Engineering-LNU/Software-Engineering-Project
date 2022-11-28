@@ -1,4 +1,4 @@
-name: Auto-format
+name: dotnet-format
 on:
   push
 
