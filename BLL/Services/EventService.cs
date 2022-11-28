@@ -10,6 +10,6 @@ public class EventService: IEventService
     {
         EventRepository eventRepository = new EventRepository();
 
-        return eventRepository.getListOfEventsByUserId(id).Result;
+        return await eventRepository.getListOfEventsByUserId(id);
     }
 }

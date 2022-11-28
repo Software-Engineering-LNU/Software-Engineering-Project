@@ -1,6 +1,7 @@
 using DAL.Data;
 using DAL.Entities;
 using DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories;
 
@@ -15,7 +16,7 @@ public class EventRepository: IEventRepository
             eventIds.Add(eventMember.EventId);
         }
 
-        List<Event> events = _db.Events.Where(x => eventIds.Contains(x.Id)).ToList();
+        List<Event> events = await _db.Events.Where(x => eventIds.Contains(x.Id)).ToListAsync();
 
         return events;
     }
