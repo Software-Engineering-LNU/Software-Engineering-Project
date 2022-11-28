@@ -70,5 +70,35 @@ namespace BLL.Services
 
             return usersList;
         }
+
+
+        public async Task<List<TeamListModel>> GetTeamListByUserId(int userId)
+        {
+            List<TeamListModel> team = new List<TeamListModel>();
+
+            List<User> users = await _unitOfWork.TeamRepository.getTeamByUserId(userId);
+            foreach(var user in users)
+            {
+                List<ProjectMember> projectMembers = await _unitOfWork.ProjectMemberRepository.GetProjectMemberByUserId(user.Id);
+                foreach (var projectMember in projectMembers)
+                {
+                    Project project = await _unitOfWork.ProjectRepository.GetProjectById(projectMember.ProjectId);
+                    Position position = await _unitOfWork.PositionRepository.GetPositionById(projectMember.PositionId);
+
+                    if (project is not null && team is not null && position is not null)
+                    {
+                        team.Add(new TeamListModel
+                        {
+                            Fullname = user.FullName,
+                            Email = user.Email,
+                            Position = position.Name,
+                            Project = project.Name
+                        });
+                    }
+                }
+            }
+
+            return team;
+        }
     }
 }
