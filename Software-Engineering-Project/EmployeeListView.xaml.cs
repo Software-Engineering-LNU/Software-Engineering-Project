@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Software_Engineering_Project.View
+namespace Software_Engineering_Project
 {
     /// <summary>
     /// Interaction logic for EmployeeListView.xaml

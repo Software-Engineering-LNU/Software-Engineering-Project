@@ -1,0 +1,140 @@
+﻿ <Window x:Class="Software_Engineering_Project.OwnerDashboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Software_Engineering_Project"
+        mc:Ignorable="d"
+        Title="OwnerDashboardWindow" Height="970" Width="1920">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="162"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="548"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" x:Name="LeftBar" Background="#D9D9D9">
+            <Grid Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="49,45,0,0" Width="70">
+                <Image HorizontalAlignment="Left" Height="54" Margin="10,0,0,0" VerticalAlignment="Center" Width="60" Source="\Assets\mini_logo.png"/>
+            </Grid>
+
+            <Grid Grid.Row="1" x:Name="NavBar" VerticalAlignment="Center" Height="260" Width="77" Background="#B5B5B5" >
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <local:NavButton Grid.Row="0" x:Name="Home" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\Home.png"/>
+                    <local:NavButton Grid.Row="1" x:Name="Employees" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\Employees.png"/>
+                    <local:NavButton Grid.Row="2" x:Name="ChangeSchedule" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\ChangeSchedule.png"/>
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="60,30,0,0">
+            <Grid>
+                <TextBlock Text="Home" FontSize="24" FontFamily="Roboto"/>
+                <TextBlock x:Name="textBlockGreeting" Text="Welcome, User Name" FontSize="32" FontFamily="Roboto" Margin="0,33,0,0"/>
+            </Grid>
+
+            <Grid>
+                <TextBlock Text="Statistics" FontSize="24" FontFamily="Roboto" Margin="0,207,0,0"/>
+                <TextBlock Text="Some project" FontSize="14" FontFamily="Roboto" Margin="0,241,0,0"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="2" x:Name="RightBar" Background="#D9D9D9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0,30,0,0" Height="50" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="75,0,60,0" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <local:NavButton x:Name="Notification" Grid.Column="0" VerticalAlignment="Center" ImageSource="\Assets\Notification2.png" Opacity="0.6" Margin="0"/>
+                    <local:NavButton x:Name="Settings" VerticalAlignment="Center" ImageSource="\Assets\Settings.png" Grid.Column="1" Margin="0"/>
+
+                </Grid>
+                <Grid Grid.Column="1" x:Name="UserBar" Margin="0,0,66,0" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" x:Name="UserInfo">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="textBlockUserName" Grid.Row="0" Text="User Name" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" FontWeight="Medium" FontFamily="Roboto" />
+                        <TextBlock x:Name="textBlockUserStatus" Grid.Row="1" Text="Owner" HorizontalAlignment="Right" VerticalAlignment="top" FontSize="12" FontWeight="Light" FontFamily="Roboto" />
+
+                    </Grid>
+                    <Grid Grid.Column="1" x:Name="Profile" HorizontalAlignment="Right">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50px"/>
+                            <ColumnDefinition Width="16px"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="\Assets\Avatar.png"/>
+                        <Image Grid.Column="1" Height="8" Width="16" Margin="4,0,0,0" Source="\Assets\AvArr.png"/>
+
+                    </Grid>
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                           Text="My projects" FontFamily="Roboto" FontSize="20" FontWeight="Medium" Foreground="#000"
+                           HorizontalAlignment="Center"/>
+
+                <ListBox Grid.Row="1" x:Name="EventsList" Background="#d9d9d9" BorderBrush="#d9d9d9" HorizontalContentAlignment="Center">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="IsTabStop" Value="False" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Grid.Row="1" Background="#D9D9D9" CornerRadius="10">
+                                <Grid Grid.Row="0" Height="80" Background="#969696">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="150"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" Height="60" Source="Assets\ProjectAvatar.png"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding ProjectName}" FontSize="20" FontFamily="Roboto" Margin="20,0,0,0"/>
+                                    <Grid Grid.Column="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <local:NavButton Grid.Column="0" x:Name="Team" ImageSource="Assets\Team.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <local:NavButton Grid.Column="1" x:Name="TeamSettings" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+            <Grid Grid.Row="2">
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,6 +1,6 @@
 ﻿using BLL.Interfaces;
 using BLL.Services;
-using Software_Engineering_Project.View;
+using Software_Engineering_Project;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -49,7 +49,7 @@ namespace Software_Engineering_Project
                 try
                 {
                     int userId = await _userService.Login(textBoxEmail.Text, passwordBoxPassword.Password);
-                    MainWindow mainWindow = new MainWindow(userId);
+                    MainWindowEmployee mainWindow = new MainWindowEmployee(userId);
                     mainWindow.Show();
                     this.Close();
                     return;
