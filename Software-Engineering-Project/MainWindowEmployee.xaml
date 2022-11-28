@@ -32,7 +32,7 @@
                     </Grid.RowDefinitions>
 
                     <local:NavButton Grid.Row="0" x:Name="Home" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\Home.png"/>
-                    <local:NavButton Grid.Row="1" x:Name="Team" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\Team.png"/>
+                    <local:NavButton Grid.Row="1" x:Name="Team" Click="ButtonTeam_Click" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\Team.png"/>
                     <local:NavButton Grid.Row="2" x:Name="Schedule" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\Schedule.png"/>
 
                 </Grid>

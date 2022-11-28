@@ -14,5 +14,7 @@ namespace DAL.Interfaces
         Task<User> GetUser(int id);
         Task AddUser(User user);
         Task<List<User>> GetAllUsers();
+        Task<User>GetUserByEmail(string email);
+        Task UpdateUser(User user);
     }
 }

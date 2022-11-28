@@ -11,5 +11,7 @@ namespace BLL.Interfaces
         Task<User> GetUser(int id);
         Task<List<EmployeesListModel>> GetEmployeesList();
         Task<List<TeamListModel>> GetTeamListByUserId(int userId);
+        Task<User> GetUserByEmail(string email);
+        Task UpdateUser(User user);
     }
 }

@@ -1,26 +1,28 @@
 ﻿using BLL.Interfaces;
 using BLL.Models;
 using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Software_Engineering_Project
 {
     /// <summary>
     /// Interaction logic for EmployeeListView.xaml
     /// </summary>
-    public partial class EmployeeListView : Window
+    public partial class EmployeeListWindow : Window
     {
         private readonly IUserService _userService = new UserService();
 
         private List<EmployeesListModel> _employees = new List<EmployeesListModel>();
         private readonly int _userId;
 
-        public EmployeeListView(int userId)
+        public EmployeeListWindow(int userId)
         {
             InitializeComponent();
             _userId = userId;
@@ -90,6 +92,7 @@ namespace Software_Engineering_Project
                 ColumnDefinition columnDefinition4 = new ColumnDefinition();
                 ColumnDefinition columnDefinition5 = new ColumnDefinition();
                 ColumnDefinition columnDefinition6 = new ColumnDefinition();
+                ColumnDefinition columnDefinition7 = new ColumnDefinition();
 
                 grid.ColumnDefinitions.Add(columnDefinition1);
                 grid.ColumnDefinitions.Add(columnDefinition2);
@@ -97,6 +100,7 @@ namespace Software_Engineering_Project
                 grid.ColumnDefinitions.Add(columnDefinition4);
                 grid.ColumnDefinitions.Add(columnDefinition5);
                 grid.ColumnDefinitions.Add(columnDefinition6);
+                grid.ColumnDefinitions.Add(columnDefinition7);
 
                 RowDefinition rowDefinition1 = new RowDefinition();
 
@@ -199,16 +203,34 @@ namespace Software_Engineering_Project
                 Grid.SetRow(salaryTextBlock, 0);
 
 
+                Button editButton = new Button();
+                editButton.BorderThickness = new Thickness(0);
+                editButton.Width = 40;
+                editButton.Height = 40;
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri("D:\\VisualStudioProjects\\SoftwareEngineering\\Software-Engineering-Project\\Assets\\Settings.png", UriKind.Relative));
+                editButton.Background = brush;
+                editButton.Click += ButtonEdit_Click;
+                Grid.SetColumn(editButton, 6);
+                Grid.SetRow(editButton, 0);
+
                 grid.Children.Add(fullnameTextBlock);
                 grid.Children.Add(emailTextBlock);
                 grid.Children.Add(projectTextBlock);
                 grid.Children.Add(teamTextBlock);
                 grid.Children.Add(positionTextBlock);
                 grid.Children.Add(salaryTextBlock);
+                grid.Children.Add(editButton);
                 listStackPanel.Children.Add(grid);
             }
 
 
+        }
+
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            EditEmployeeWindow editEmployeeWindow = new EditEmployeeWindow("sergiy@gmail.com");
+            editEmployeeWindow.ShowDialog();
         }
 
 

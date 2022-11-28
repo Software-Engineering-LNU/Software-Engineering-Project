@@ -9,8 +9,8 @@ namespace BLL.Services
     public sealed class UserService : IUserService
     {
         private readonly IUnitOfWork _unitOfWork = new UnitOfWork();
-        
-        
+
+
         public async Task<int> Login(string email, string password)
         {
             int userId = await _unitOfWork.UserRepository.Contain(email, password);
@@ -77,7 +77,7 @@ namespace BLL.Services
             List<TeamListModel> team = new List<TeamListModel>();
 
             List<User> users = await _unitOfWork.TeamRepository.getTeamByUserId(userId);
-            foreach(var user in users)
+            foreach (var user in users)
             {
                 List<ProjectMember> projectMembers = await _unitOfWork.ProjectMemberRepository.GetProjectMemberByUserId(user.Id);
                 foreach (var projectMember in projectMembers)
@@ -99,6 +99,16 @@ namespace BLL.Services
             }
 
             return team;
+        }
+
+        public Task<User> GetUserByEmail(string email)
+        {
+            return _unitOfWork.UserRepository.GetUserByEmail(email);
+        }
+
+        public async System.Threading.Tasks.Task UpdateUser(User user)
+        {
+            await _unitOfWork.UserRepository.UpdateUser(user);
         }
     }
 }

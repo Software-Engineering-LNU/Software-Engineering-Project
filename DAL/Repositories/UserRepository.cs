@@ -43,5 +43,16 @@ namespace DAL.Repositories
         {
             return await _db.Users.ToListAsync();
         }
+
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _db.Users.SingleOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task UpdateUser(User user)
+        {
+            _db.Users.Update(user);
+            await _db.SaveChangesAsync();
+        }
     }
 }

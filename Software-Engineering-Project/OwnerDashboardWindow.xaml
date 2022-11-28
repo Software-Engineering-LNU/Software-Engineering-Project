@@ -27,7 +27,7 @@
                     </Grid.RowDefinitions>
 
                     <local:NavButton Grid.Row="0" x:Name="Home" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\Home.png"/>
-                    <local:NavButton Grid.Row="1" x:Name="Employees" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\Employees.png"/>
+                    <local:NavButton Grid.Row="1" x:Name="Employees" Click="Employees_Click" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\Employees.png"/>
                     <local:NavButton Grid.Row="2" x:Name="ChangeSchedule" VerticalAlignment="Center" HorizontalAlignment="Left" ImageSource="\Assets\ChangeSchedule.png"/>
 
                 </Grid>

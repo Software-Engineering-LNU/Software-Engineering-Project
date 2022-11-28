@@ -1,4 +1,4 @@
-﻿<Window x:Class="Software_Engineering_Project.EmployeeListView"
+﻿<Window x:Class="Software_Engineering_Project.EmployeeListWindow"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Software_Engineering_Project"
       mc:Ignorable="d" 
         d:DesignHeight="970" d:DesignWidth="1920"
-      Title="EmployeeListView" Width="1920" Height="970">
+      Title="EmployeeListWindow" Width="1920" Height="970">
 
     <StackPanel Background="#fafbfc" Orientation="Vertical">
 
@@ -74,6 +74,7 @@
         <StackPanel Orientation="Vertical" >
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>

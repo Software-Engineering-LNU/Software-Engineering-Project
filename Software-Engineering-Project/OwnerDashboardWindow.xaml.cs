@@ -61,5 +61,11 @@ namespace Software_Engineering_Project
             var projects = await _projectService.getProjectsByUserId(_userId);
             ProjectsList.ItemsSource = projects;
         }
+
+        private void Employees_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeListWindow employeeListWindow = new EmployeeListWindow(_userId);
+            employeeListWindow.ShowDialog();
+        }
     }
 }
