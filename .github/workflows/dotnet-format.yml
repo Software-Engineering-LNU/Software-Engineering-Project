@@ -2,7 +2,8 @@ name: dotnet-format
 on:
   push:
     branches:
-      [develop]
+      - develop
+      - '**'
 
 jobs:
   dotnet-format:
