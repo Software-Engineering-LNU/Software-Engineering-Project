@@ -101,7 +101,7 @@
                            Text="My projects" FontFamily="Roboto" FontSize="20" FontWeight="Medium" Foreground="#000"
                            HorizontalAlignment="Center"/>
 
-                <ListBox Grid.Row="1" x:Name="EventList" Background="#d9d9d9" BorderBrush="#d9d9d9" HorizontalContentAlignment="Center">
+                <ListBox Grid.Row="1" x:Name="ProjectsList" Background="#d9d9d9" BorderBrush="#d9d9d9" HorizontalContentAlignment="Center">
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="IsTabStop" Value="False" />
