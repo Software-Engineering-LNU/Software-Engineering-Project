@@ -1,6 +1,8 @@
 name: dotnet-format
 on:
-  push
+  push:
+    branches:
+      [develop]
 
 jobs:
   dotnet-format:
