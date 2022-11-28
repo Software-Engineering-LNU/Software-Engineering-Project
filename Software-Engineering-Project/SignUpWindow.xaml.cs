@@ -1,5 +1,6 @@
 ﻿using BLL.Interfaces;
 using BLL.Services;
+using DAL.Entities;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -75,8 +76,17 @@ namespace Software_Engineering_Project
                 try
                 {
                     int userId = await _userService.Register(textBoxEmail.Text, passwordBoxPassword.Password, textBoxFullName.Text, textBoxPhoneNumber.Text, true);
-                    MainWindow mainWindow = new MainWindow(userId);
-                    mainWindow.Show();
+                    User user = await _userService.GetUser(userId);
+                    if(!user.IsBusinessOwner)
+                    {
+                        MainWindowEmployee mainWindow = new MainWindowEmployee(userId);
+                        mainWindow.Show();
+                    }
+                    else
+                    {
+                        OwnerDashboardWindow mainWindow = new OwnerDashboardWindow(userId);
+                        mainWindow.Show();
+                    }
                     this.Close();
                     return;
                 }
