@@ -32,7 +32,7 @@ namespace EmployeestSeed.Data
                 db.SaveChanges();
 
 
-                for(int i = 0; i<count; i++)
+                for (int i = 0; i < count; i++)
                 {
                     db.Teams.Add(_unitOfWork.TeamFactory.CreateEntity());
                     db.ProjectMembers.Add(_unitOfWork.ProjectMemberFactory.CreateEntity());
@@ -40,7 +40,7 @@ namespace EmployeestSeed.Data
                 db.SaveChanges();
 
 
-                for(int i = 0; i<count; i++)
+                for (int i = 0; i < count; i++)
                 {
                     db.Tasks.Add(_unitOfWork.TaskFactory.CreateEntity());
                     db.TeamMembers.Add(_unitOfWork.TeamMemberFactory.CreateEntity());

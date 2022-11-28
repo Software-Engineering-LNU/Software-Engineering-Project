@@ -16,6 +16,6 @@ namespace Software_Engineering_Project
     /// </summary>
     public partial class App : Application
     {
-        
+
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories;
 
-public class EventRepository: IEventRepository
+public class EventRepository : IEventRepository
 {
     private readonly EmployeestDbContext _db = new EmployeestDbContext();
     public async Task<List<Event>> getListOfEventsByUserId(int id)
